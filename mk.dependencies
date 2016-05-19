@@ -1,5 +1,13 @@
 [
   {
+    "repository": "android_kernel_huawei_chm_cl00",
+    "target_path": "kernel/huawei/chm_cl00"
+  },
+  {
+    "repository": "android_vendor_huawei_chm_cl00",
+    "target_path": "vendor/huawei/chm_cl00"
+  },
+  {
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common"
   },

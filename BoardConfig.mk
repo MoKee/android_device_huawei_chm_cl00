@@ -66,11 +66,10 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_SEPARATED_DT := true
-BOARD_KERNEL_PREBUILT_DT := true
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/huawei/chm_cl00/dt.img --kernel device/huawei/chm_cl00/kernel
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 # TARGET_PREBUILT_KERNEL := device/huawei/chm_cl00/kernel
-TARGET_KERNEL_SOURCE := android_kernel_huawei_kiwi
-TARGET_KERNEL_CONFIG := cyanogenmod_kiwi-64_defconfig
+TARGET_KERNEL_SOURCE := kernel/huawei/chm_cl00
+# TARGET_KERNEL_CONFIG := cyanogenmod_kiwi-64_defconfig
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
@@ -78,7 +77,7 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 CHM_MODULES:
 	mkdir -p $(TARGET_OUT)/lib/modules
-	cp -r device/huawei/chm_cl00/modules/ $(TARGET_OUT)/lib/
+	cp -r kernel/huawei/chm_cl00/prebuilt/modules/ $(TARGET_OUT)/lib/
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
 
 TARGET_KERNEL_MODULES = CHM_MODULES
@@ -212,10 +211,10 @@ TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_chm.cpp
 
 MALLOC_IMPL := dlmalloc
 
-# CMHW
+# MKHW
 BOARD_HARDWARE_CLASS := \
-    hardware/cyanogen/cmhw \
-    $(DEVICE_PATH)/cmhw
+    hardware/mokee/mkhw \
+    $(DEVICE_PATH)/mkhw
 
 # Dexpreopt
 WITH_DEXPREOPT := true

@@ -112,7 +112,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/lowi.conf:system/etc/lowi.conf
 
 BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw
+    hardware/mokee/mkhw
 
 # KERNEL
 PRODUCT_COPY_FILES += \

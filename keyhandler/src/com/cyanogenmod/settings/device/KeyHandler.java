@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2016 The CyanogenMod Project
+ * Copyright (C) 2015-2016 The mokee Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.mokee.settings.device;
 
 import android.Manifest;
 import android.app.NotificationManager;
@@ -43,7 +43,7 @@ import android.view.KeyEvent;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
 
-import cyanogenmod.providers.CMSettings;
+import mokee.providers.MKSettings;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -110,9 +110,9 @@ public class KeyHandler implements DeviceKeyHandler {
 
         final Resources resources = mContext.getResources();
         mProximityTimeOut = resources.getInteger(
-                org.cyanogenmod.platform.internal.R.integer.config_proximityCheckTimeout);
+                org.mokee.platform.internal.R.integer.config_proximityCheckTimeout);
         mProximityWakeSupported = resources.getBoolean(
-                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
+                org.mokee.platform.internal.R.bool.config_proximityCheckOnWake);
 
         if (mProximityWakeSupported) {
             mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -173,7 +173,7 @@ public class KeyHandler implements DeviceKeyHandler {
             case GESTURE_CIRCLE_SCANCODE:
                 mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
 
-                Intent intent = new Intent(cyanogenmod.content.Intent.ACTION_SCREEN_CAMERA_GESTURE);
+                Intent intent = new Intent(mokee.content.Intent.ACTION_SCREEN_CAMERA_GESTURE);
                 mContext.sendBroadcast(intent, Manifest.permission.STATUS_BAR_SERVICE);
                 doHapticFeedback();
                 break;
@@ -240,9 +240,9 @@ public class KeyHandler implements DeviceKeyHandler {
             }
             Message msg = getMessageForKeyEvent(scanCode);
             boolean defaultProximity = mContext.getResources().getBoolean(
-                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
-            boolean proximityWakeCheckEnabled = CMSettings.System.getInt(mContext.getContentResolver(),
-                    CMSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
+                org.mokee.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
+            boolean proximityWakeCheckEnabled = MKSettings.System.getInt(mContext.getContentResolver(),
+                    MKSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
             if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
                 mEventHandler.sendMessageDelayed(msg, mProximityTimeOut);
                 processEvent(scanCode);
@@ -300,8 +300,8 @@ public class KeyHandler implements DeviceKeyHandler {
         if (mVibrator == null) {
             return;
         }
-        boolean enabled = CMSettings.System.getInt(mContext.getContentResolver(),
-                CMSettings.System.TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK, 1) != 0;
+        boolean enabled = MKSettings.System.getInt(mContext.getContentResolver(),
+                MKSettings.System.TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK, 1) != 0;
         if (enabled) {
             mVibrator.vibrate(50);
         }

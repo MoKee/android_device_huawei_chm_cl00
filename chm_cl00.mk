@@ -248,7 +248,7 @@ PRODUCT_COPY_FILES += \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt
 
 # Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/mk/config/nfc_enhanced.mk)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/calmodule.cfg:system/vendor/etc/calmodule.cfg
@@ -286,6 +286,9 @@ PRODUCT_COPY_FILES += \
 # KEYHANDLER
 PRODUCT_PACKAGES += \
     com.cyanogenmod.keyhandler
+# Mokee Developer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.mk.maintainer=xiaognol
 
 PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
 # never dexopt the keyhandler

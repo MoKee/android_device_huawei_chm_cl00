@@ -73,3 +73,4 @@ if [ "$ischarging" == "Charging" ]; then
 		setprop sys.charger.history  1
 	fi
 fi
+setprop sys.charger.history  1

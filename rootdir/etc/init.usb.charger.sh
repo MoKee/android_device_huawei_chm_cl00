@@ -28,7 +28,7 @@
 
 bischarging=`cat /sys/class/power_supply/usb/present`
 isboot=`getprop sys.boot_completed`
-ischarging=`cat /sys/class/power_supply/bms/status`
+ischarging=`cat /sys/class/power_supply/battery/status`
 history=`getprop sys.charger.history`
 historyboot=`getprop sys.charger.historyboot`
 if [-z "$history"]; then

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016, The CyanogenMod Project
+ * Copyright (C) 2016, The MoKee Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -185,7 +185,7 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = AMPLIFIER_HARDWARE_MODULE_ID,
         .name = "Kiwi audio amplifier HAL",
-        .author = "The CyanogenMod Open Source Project",
+        .author = "The MoKee Open Source Open Source Project",
         .methods = &hal_module_methods,
     },
 };

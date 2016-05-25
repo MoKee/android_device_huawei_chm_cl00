@@ -28,17 +28,13 @@
 
 bischarging=`cat /sys/class/power_supply/usb/present`
 isboot=`getprop sys.boot_completed`
-ischarging=`cat /sys/class/power_supply/battery/status`
 history=`getprop sys.charger.history`
 historyboot=`getprop sys.charger.historyboot`
-if [-z "$history"]; then
-history=0
-fi
-if [-z "$historyboot"]; then
-historyboot=0
-fi
+device=`getprop ro.build.product`
+ischarging=`cat /sys/class/power_supply/battery/charge_type`
 
-if [ "$ischarging" == "Discharging" ]; then
+
+if [ "$ischarging" == "N/A" ]; then
 
 	if [ "$history" == "1" ]; then
         echo 0 > /sys/class/power_supply/usb/present
@@ -55,8 +51,8 @@ if [ "$ischarging" == "Discharging" ]; then
 		echo "ischarge enable"
 		setprop sys.charger.historyboot  1
 	fi
-fi
-if [ "$ischarging" == "Charging" ]; then
+
+else
 
 	if [ "$historyboot" == "1" ]; then
         echo 0 > /sys/class/power_supply/usb/present

@@ -116,7 +116,6 @@ BOARD_HARDWARE_CLASS += \
 
 # KERNEL
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dt.img:dt.img \
     $(LOCAL_PATH)/kernel:kernel
 
 # WiFi Display

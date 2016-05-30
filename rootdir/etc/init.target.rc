@@ -85,11 +85,6 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
 
-service ischarger /system/bin/sh /init.usb.charger.sh
-	class main
-	user root
-	oneshot
-
 service networkcheck /system/bin/sh /system/etc/init.networkmonitor.sh
 	class main
 	user root
@@ -166,7 +161,6 @@ on boot
     insmod /system/lib/modules/adsprpc.ko
 
 on property:sys.boot_completed=1
-    start ischarger
     start networkcheck
 
 # access permission for secure touch

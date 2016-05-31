@@ -206,12 +206,14 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.sh \
     init.usb.sh \
-    init.usb.charger.sh \
     libqmi_oem_main \
     oeminfo_nvm_server \
     rmt_oeminfo \
     rmt_storage \
     test_diag
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/sbin/healthd:root/sbin/healthd
 
 # RIL
 PRODUCT_PACKAGES += \

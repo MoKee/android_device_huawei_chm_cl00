@@ -37,4 +37,8 @@ $(shell mkdir -p $(TARGET_OUT)/lib/modules; \
 	cp -r kernel/huawei/chm_cl00/prebuilt/modules/ $(TARGET_OUT)/lib/; \
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko)
 
+
+$(shell mkdir -p $(TARGET_ROOT_OUT) \
+    && rm -f $(TARGET_ROOT_OUT)/charger && ln -sf /sbin/healthd $(TARGET_ROOT_OUT)/charger)
+
 endif

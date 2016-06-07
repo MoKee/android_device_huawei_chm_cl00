@@ -177,6 +177,10 @@ endif
 PRODUCT_PACKAGES += \
     power.msm8916 \
 
+# Camera Wrapper
+PRODUCT_PACKAGES += \
+    camera.msm8916 \
+
 # Qualcomm
 PRODUCT_PACKAGES += \
     dsi_config.xml \

@@ -113,6 +113,9 @@ static char *camera_fixup_getparams(int id, const char *settings)
         params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, supportedSceneModes);
     }
 
+    if (params.get("hw-min-beauty-level")) {
+        params.set("hw-min-beauty-level", 5);
+    }
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
@@ -128,7 +131,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
 {
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
-
+    params.set("hw-min-beauty-level","5");
 //For HDR need 1x test
 
 /*    const char *sceneMode = params.get(android::CameraParameters::KEY_SCENE_MODE);

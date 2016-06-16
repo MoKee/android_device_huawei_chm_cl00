@@ -168,7 +168,7 @@ MALLOC_IMPL := dlmalloc
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
-# BOARD_POWER_CUSTOM_BOARD_LIB := libpower_chm
+BOARD_POWER_CUSTOM_BOARD_LIB := libpower_chm
 
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop

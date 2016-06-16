@@ -28,6 +28,7 @@
 # /* disable init.qcom.usb.rc and init.qcom.usb.sh, we use init.usb.rc */
 import init.qcom.usb.rc
 import init.target.rc
+import /init.qcom.power.rc
 # import /init.hw.debug.rc
 import /init.${ro.hardware.cpucontrol}.rc
 

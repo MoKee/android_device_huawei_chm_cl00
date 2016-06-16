@@ -194,6 +194,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.hw.debug.rc \
     init.target.rc \
+    init.qcom.power.rc \
     ueventd.qcom.rc \
     init.ranchu.rc \
     init.startoff_usbcharger.rc \
@@ -210,6 +211,7 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.sh \
     init.usb.sh \
+    init.qcom.power.sh \
     libqmi_oem_main \
     oeminfo_nvm_server \
     rmt_oeminfo \

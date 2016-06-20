@@ -106,6 +106,7 @@ persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 
 # Audio
+audio.dolby.ds2.enabled=true
 av.offload.enable=true
 av.streaming.offload.enable=true
 audio.offload.buffer.size.kb=64

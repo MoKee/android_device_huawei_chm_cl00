@@ -68,7 +68,7 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 # TARGET_PREBUILT_KERNEL := device/huawei/chm_cl00/kernel
-TARGET_KERNEL_SOURCE := kernel/android_kernel_huawei_kiwi
+TARGET_KERNEL_SOURCE := kernel/huawei/chm_cl00
 TARGET_KERNEL_CONFIG := chm_mokee_defconfig
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-

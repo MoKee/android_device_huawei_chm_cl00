@@ -115,8 +115,8 @@ BOARD_HARDWARE_CLASS += \
     hardware/mokee/mkhw
 
 # KERNEL
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/kernel:kernel
+# PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/kernel:kernel
 
 # WiFi Display
 ifneq ($(QCPATH),)

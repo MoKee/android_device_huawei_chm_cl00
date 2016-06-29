@@ -68,8 +68,8 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 # TARGET_PREBUILT_KERNEL := device/huawei/chm_cl00/kernel
-TARGET_KERNEL_SOURCE := kernel/huawei/chm_cl00
-# TARGET_KERNEL_CONFIG := mokee_kiwi-64_defconfig
+TARGET_KERNEL_SOURCE := kernel/android_kernel_huawei_kiwi
+TARGET_KERNEL_CONFIG := chm_mokee_defconfig
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
@@ -77,10 +77,10 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 CHM_MODULES:
 	mkdir -p $(TARGET_OUT)/lib/modules
-	cp -r kernel/huawei/chm_cl00/prebuilt/modules/ $(TARGET_OUT)/lib/
+	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
 
-TARGET_KERNEL_MODULES = CHM_MODULES
+TARGET_KERNEL_MODULES += CHM_MODULES
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
@@ -195,7 +195,7 @@ BOARD_RIL_CLASS := ../../../device/huawei/chm_cl00/ril
 PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
 # OTA
-# BLOCK_BASED_OTA := true
+BLOCK_BASED_OTA := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

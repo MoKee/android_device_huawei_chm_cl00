@@ -76,7 +76,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 CHM_MODULES:
-	mkdir -p $(TARGET_OUT)/lib/modules
+	mkdir -p $(TARGET_OUT)/lib/modules/pronto
 	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
 

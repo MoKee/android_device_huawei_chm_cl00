@@ -195,7 +195,7 @@ BOARD_RIL_CLASS := ../../../device/huawei/chm_cl00/ril
 PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
 # OTA
-BLOCK_BASED_OTA := true
+# BLOCK_BASED_OTA := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

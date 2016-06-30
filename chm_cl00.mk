@@ -121,7 +121,8 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8916
+    lights.msm8916 \
+    libqmi_oem_api
 
 # Sensors
 # PRODUCT_PACKAGES += \

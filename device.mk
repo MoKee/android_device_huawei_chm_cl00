@@ -106,7 +106,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv_CHM-CL00.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_CHM-CL00.bin
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/lowi.conf:system/etc/lowi.conf

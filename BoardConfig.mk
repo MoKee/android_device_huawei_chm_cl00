@@ -203,8 +203,8 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_chm.cpp
+TARGET_INIT_VENDOR_LIB := libinit_chm
+TARGET_RECOVERY_DEVICE_MODULES := libinit_chm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Malloc

@@ -25,9 +25,9 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdlib>
+#include <fstream>
+#include <string>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -39,28 +39,28 @@
 void vendor_load_properties()
 {
     char platform[PROP_VALUE_MAX];
-    char model[110];
-    FILE* fp;
+    std::ifstream fin;
+    std::string buf;
     int rc;
-    char variant[PROP_VALUE_MAX];
 
     rc = property_get("ro.board.platform", platform);
     if (!rc || !ISMATCH(platform, ANDROID_TARGET))
         return;
 
-    fp = fopen("/proc/app_info", "rb");
-    while (fgets(model, 100, fp))
-        if (strstr(model, "huawei_fac_product_name") != NULL)
+    fin.open("/proc/app_info");
+    while (getline(fin, buf))
+        if (buf.find("huawei_fac_product_name") != std::string::npos)
             break;
+    fin.close();
 
-    if (strstr(model, "ALE-CL00") != NULL) {
+    if (buf.find("ALE-CL00") != std::string::npos) {
         property_set("ro.product.model", "HUAWEI ALE-CL00");
         property_set("ro.product.name", "ALE-CL00");
         property_set("ro.product.device", "hwALE-CL00");
         property_set("ro.build.product", "ALE-CL00");
         property_set("qemu.hw.mainkeys", "0");
     }
-	else if (strstr(model, "CHM-CL00") != NULL) {
+	else if (buf.find("CHM-CL00") != std::string::npos) {
         property_set("ro.product.model", "HUAWEI CHM-CL00");
         property_set("ro.product.name", "CHM-CL00");
         property_set("ro.product.device", "hwCHM-CL00");

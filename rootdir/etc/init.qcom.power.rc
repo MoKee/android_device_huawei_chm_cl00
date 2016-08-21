@@ -24,8 +24,7 @@ on enable-low-power
     # disable thermal core_control to update interactive gov settings
     write /sys/module/msm_thermal/core_control/enabled 0
 
-    # Disable cluster plug to update interactive gov settings
-    write /sys/module/cluster_plug/parameters/active 0
+    insmod /system/lib/modules/msm_core_ctl.ko
 
     # enable governor for perf cluster
     write /sys/devices/system/cpu/cpu0/online 1

@@ -111,9 +111,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/lowi.conf:system/etc/lowi.conf
 
-BOARD_HARDWARE_CLASS += \
-    hardware/mokee/mkhw
-
 # KERNEL
 # PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/kernel:kernel

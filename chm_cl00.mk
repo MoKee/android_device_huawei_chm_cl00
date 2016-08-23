@@ -251,9 +251,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt
 
-# Enhanced NFC
-$(call inherit-product, vendor/mk/config/nfc_enhanced.mk)
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/calmodule.cfg:system/vendor/etc/calmodule.cfg
 

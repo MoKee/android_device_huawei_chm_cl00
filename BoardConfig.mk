@@ -173,9 +173,6 @@ BOARD_POWER_CUSTOM_BOARD_LIB := libpower_chm
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
-# HARDWARE
-BOARD_USES_MOKEE_HARDWARE := true
-
 # Qualcomm support
 BOARD_USES_QC_TIME_SERVICES := true
 ifneq ($(QCPATH),)
@@ -210,11 +207,6 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 # Malloc
 
 MALLOC_IMPL := dlmalloc
-
-# MKHW
-BOARD_HARDWARE_CLASS := \
-    hardware/mokee/mkhw \
-    $(DEVICE_PATH)/mkhw
 
 # Dexpreopt
 WITH_DEXPREOPT := true

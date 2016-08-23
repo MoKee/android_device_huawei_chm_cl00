@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015 The Mokee Project
+# Copyright (C) 2015 The Cyanogenmod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/huawei/chm_cl00/device.mk)
 $(call inherit-product, device/huawei/chm_cl00/chm_cl00.mk)
 
-# Inherit some common MK stuff.
-$(call inherit-product, vendor/mk/config/common_full_phone.mk)
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := mk_chm_cl00
+PRODUCT_NAME := cm_chm_cl00
 PRODUCT_DEVICE := chm_cl00
 PRODUCT_BRAND := HUAWEI
 PRODUCT_MODEL := CHM-CL00
@@ -38,14 +38,13 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="msm8916_64-user 6.0.1 MMB28B eng.jenkins.20160331.151432 test-keys" \
     TARGET_DEVICE="CHM-CL00"
 
-# MKHW
+
+# CMHW
 BOARD_HARDWARE_CLASS := \
-    hardware/mokee/mkhw \
-    $(DEVICE_PATH)/mkhw
+    hardware/cyanogen/cmhw \
+    $(DEVICE_PATH)/cmhw
 
+# OTA
+BLOCK_BASED_OTA := true
 
-# HARDWARE
-BOARD_USES_MOKEE_HARDWARE := true
-
-# Enhanced NFC
-$(call inherit-product, vendor/mk/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)

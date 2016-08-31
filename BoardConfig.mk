@@ -124,11 +124,11 @@ BOARD_USES_LEGACY_MMAP := true
 
 # Charger
 # BOARD_CHARGER_ENABLE_SUSPEND := true
-# BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # BOARD_HAL_STATIC_LIBRARIES += libhealthd.msm8916
 # BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(DEVICE_PATH)/charger/images
-
-PRODUCT_PACKAGES := $(filter-out healthd , $(PRODUCT_PACKAGES))
+BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+# PRODUCT_PACKAGES := $(filter-out healthd , $(PRODUCT_PACKAGES))
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 

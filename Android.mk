@@ -29,9 +29,4 @@ include $(CLEAR_VARS)
 $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
     ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
 	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
-
-
-$(shell mkdir -p $(TARGET_ROOT_OUT) \
-    && rm -f $(TARGET_ROOT_OUT)/charger && ln -sf /sbin/healthd $(TARGET_ROOT_OUT)/charger)
-
 endif

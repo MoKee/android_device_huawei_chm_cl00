@@ -44,16 +44,6 @@ on fs
     swapon_all fstab.qcom
     write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/page-cluster 0
-
-    # Keeping following partitions outside fstab file. As user may not have
-    # these partition flashed on the device. Failure to mount any partition in fstab file
-    # results in failure to launch late-start class.
-
-    #wait /dev/block/bootdevice/by-name/cache
-    #mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
-
-    #wait /dev/block/bootdevice/by-name/persist
-    #mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
     mkdir /persist/data 0700 system system
     restorecon_recursive /persist
 
@@ -127,11 +117,6 @@ service qseecomd /system/bin/qseecomd
    user root
    group root
 
-#service aostlmd /system/bin/aostlmd
-#   class late_start
-#   user system
-#   group system net_raw
-
 service perfd /system/vendor/bin/perfd
    class main
    user root
@@ -172,19 +157,6 @@ on property:sys.boot_completed=1
     chown system drmrpc /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0070/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0070/secure_touch
     write /proc/sys/kernel/sched_boost 1
-
-service ppd /system/bin/mm-pp-daemon
-    class late_start
-    disabled
-    user system
-    socket pps stream 0660 system system
-    group system graphics
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
 
 service wcnss-service /system/bin/wcnss_service
     class main

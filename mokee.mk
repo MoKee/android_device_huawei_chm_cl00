@@ -41,7 +41,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # MKHW
 BOARD_HARDWARE_CLASS := \
     hardware/mokee/mkhw \
-    $(DEVICE_PATH)/mkhw
+    device/huawei/chm_cl00/mkhw
 
 
 # HARDWARE

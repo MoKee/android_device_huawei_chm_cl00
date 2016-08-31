@@ -50,8 +50,8 @@ on early-boot
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
     write /sys/kernel/boot_adsp/boot 1
     exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
-    symlink /storage/self/primary /storage/sdcard0
-    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /mnt/sdcard0
+    symlink /sdcard /storage/sdcard0
 
 on boot
     chmod 0660 /dev/bluetooth

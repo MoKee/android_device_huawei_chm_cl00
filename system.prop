@@ -63,7 +63,8 @@ ro.hwpp.cust_ons_bin=true
 ro.config.launcher_matchcard=1
 ro.hwpp_sig_stability_switch=true
 persist.radio.use_nv_force=false
-
+persist.radio.add_power_save=1
+persist.radio.modem.cap=7E442
 ro.telephony.ril_class=HuaweiRIL
 
 # Display
@@ -151,6 +152,7 @@ persist.hw_camera.video_sta=true
 ro.build.hide.pic_size_match=4160x3120;4208x2368;3104x3104;3264x2448;3264x1836
 ro.build.hide.pic_size_replace=3264x2448;3264x1836;2448x2448;2592x1952;2592x1458
 ro.config.camera_target_track=true
+persist.camera.promode=true
 ro.config.hw_auto_scene=true
 ro.config.hw_burst_snapshot=true
 ro.config.hw_camera_bestShot=true
